@@ -1,0 +1,151 @@
+
+<div class="min-h-screen bg-white text-gray-900 font-sans">
+  <!-- Navbar -->
+  <nav class="container mx-auto px-6 py-4 flex justify-between items-center bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100">
+    <div class="flex items-center gap-2">
+      <svg class="h-8 w-8 text-brand-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M7 20V4" />
+        <path d="M7 12h5" />
+        <path d="M12 12L17 7" />
+        <path d="M12 12L17 17" />
+        <circle cx="17" cy="7" r="1.5" fill="currentColor" stroke="none" />
+        <circle cx="17" cy="17" r="1.5" fill="currentColor" stroke="none" />
+      </svg>
+      <span class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-brand-600 to-brand-800 tracking-wide font-sans">
+        Konnect
+      </span>
+    </div>
+    <div class="space-x-4" *ngIf="!authService.isAuthenticated(); else loggedInNav">
+      <a routerLink="/login" class="px-4 py-2 text-slate-600 hover:text-slate-900 transition font-medium">Login</a>
+      <a routerLink="/register" class="px-6 py-2 bg-brand-600 text-white font-semibold rounded-full hover:bg-brand-700 transition transform hover:scale-105 shadow-md hover:shadow-lg shadow-brand-500/20">
+        Get Started
+      </a>
+    </div>
+    <ng-template #loggedInNav>
+      <a routerLink="/dashboard" class="px-6 py-2 bg-brand-600 text-white font-semibold rounded-full hover:bg-brand-700 transition transform hover:scale-105 shadow-md hover:shadow-lg shadow-brand-500/20">
+        Dashboard
+      </a>
+    </ng-template>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="container mx-auto px-6 py-20 text-center relative z-10 bg-gradient-to-b from-gray-50 to-white">
+    <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight text-slate-900">
+      Manage Your <span class="bg-clip-text text-transparent bg-gradient-to-r from-brand-500 via-brand-600 to-brand-700">Timepieces</span><br>
+      With Precision
+    </h1>
+    <p class="text-xl md:text-2xl text-slate-600 mb-10 max-w-3xl mx-auto">
+      The ultimate inventory and sales management solution for luxury watch retailers.
+      Secure, scalable, and designed for elegance.
+    </p>
+    <div class="flex justify-center gap-4" *ngIf="!authService.isAuthenticated(); else loggedInHero">
+      <a routerLink="/register" class="px-8 py-4 bg-gradient-to-r from-brand-500 to-brand-600 text-white font-bold rounded-full text-lg shadow-lg hover:shadow-brand-500/30 transition transform hover:-translate-y-1">
+        Start Managing Now
+      </a>
+      <a routerLink="/login" class="px-8 py-4 border-2 border-slate-200 text-slate-700 font-bold rounded-full text-lg hover:border-slate-400 hover:text-slate-900 transition bg-white">
+        Access Account
+      </a>
+    </div>
+    <ng-template #loggedInHero>
+      <div class="flex justify-center gap-4">
+        <a routerLink="/dashboard" class="px-8 py-4 bg-gradient-to-r from-brand-500 to-brand-600 text-white font-bold rounded-full text-lg shadow-lg hover:shadow-brand-500/30 transition transform hover:-translate-y-1">
+          Go to Dashboard
+        </a>
+      </div>
+    </ng-template>
+  </header>
+
+  <!-- Tech Stack Section -->
+  <section class="bg-gray-50 py-12 border-y border-gray-100">
+    <div class="container mx-auto px-6 text-center">
+      <h3 class="text-gray-500 uppercase tracking-widest text-sm font-semibold mb-8">Powered by Modern Technology</h3>
+      <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-80 grayscale hover:grayscale-0 transition-all duration-500">
+        <!-- Angular -->
+        <div class="flex flex-col items-center gap-2 group">
+          <img src="https://angular.io/assets/images/logos/angular/angular.svg" alt="Angular" class="h-10 w-10 group-hover:scale-110 transition drop-shadow-sm">
+          <span class="text-sm font-medium text-gray-700">Angular</span>
+        </div>
+        <!-- Tailwind -->
+        <div class="flex flex-col items-center gap-2 group">
+           <svg class="h-10 w-10 text-cyan-500" viewBox="0 0 24 24" fill="currentColor"><path d="M12.001,4.8c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624C13.666,10.618,15.027,12,18.001,12c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624C16.337,6.182,14.976,4.8,12.001,4.8z M6.001,12c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624c1.177,1.194,2.538,2.576,5.512,2.576c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624C10.337,13.382,8.976,12,6.001,12z"/></svg>
+           <span class="text-sm font-medium text-gray-700">Tailwind CSS</span>
+        </div>
+        <!-- Node.js -->
+        <div class="flex flex-col items-center gap-2 group">
+          <svg class="h-10 w-10 text-green-600" viewBox="0 0 24 24" fill="currentColor"><path d="M12,2C6.48,2,2,6.48,2,12s4.48,10,10,10s10-4.48,10-10S17.52,2,12,2z M12,17l-5-3V9l5-3l5,3v5L12,17z"/></svg>
+          <span class="text-sm font-medium text-gray-700">Node.js</span>
+        </div>
+        <!-- Express -->
+        <div class="flex flex-col items-center gap-2 group">
+          <div class="h-10 w-10 flex items-center justify-center bg-gray-900 text-white rounded-full font-bold text-xs group-hover:scale-110 transition shadow-md">ex</div>
+          <span class="text-sm font-medium text-gray-700">Express</span>
+        </div>
+        <!-- Supabase -->
+        <div class="flex flex-col items-center gap-2 group">
+          <svg class="h-10 w-10 text-emerald-500" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5a.75.75 0 0 1 .72.53l3.61 11.59 5.6-5.18a.75.75 0 0 1 1.05 1.13l-9.8 11.2a.75.75 0 0 1-1.28-.56l-1.35-7.51-6.17 4.1a.75.75 0 0 1-1.12-.87l4.03-13.91a.75.75 0 0 1 .71-.53z"/></svg>
+          <span class="text-sm font-medium text-gray-700">Supabase</span>
+        </div>
+        <!-- Prisma -->
+        <div class="flex flex-col items-center gap-2 group">
+          <svg class="h-10 w-10 text-gray-800" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 19h20L12 2zm1 3.5l6.5 11h-13L13 5.5z"/></svg>
+          <span class="text-sm font-medium text-gray-700">Prisma</span>
+        </div>
+        <!-- TypeScript -->
+        <div class="flex flex-col items-center gap-2 group">
+          <span class="text-3xl font-bold text-blue-600">TS</span>
+          <span class="text-sm font-medium text-gray-700">TypeScript</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Features Grid -->
+  <section class="py-20 bg-gradient-to-b from-gray-50 to-white border-t border-gray-100">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-16 text-gray-900">Core Features</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Feature 1: Products -->
+        <div class="bg-white p-8 rounded-xl border border-slate-200 shadow-sm hover:shadow-xl hover:border-brand-500/30 transition duration-300 hover:-translate-y-2 group">
+          <div class="w-12 h-12 bg-brand-50 rounded-lg flex items-center justify-center mb-6 text-brand-600 text-2xl group-hover:bg-brand-500 group-hover:text-white transition">
+            ⌚
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-slate-900">Product Inventory</h3>
+          <p class="text-slate-600">Add, edit, and track luxury watches with detailed attributes including pricing, stock, and descriptions.</p>
+        </div>
+
+        <!-- Feature 2: Brands & Categories -->
+        <div class="bg-white p-8 rounded-xl border border-gray-200 shadow-sm hover:shadow-xl hover:border-blue-500/30 transition duration-300 hover:-translate-y-2 group">
+          <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-6 text-blue-600 text-2xl group-hover:bg-blue-500 group-hover:text-white transition">
+            🏷️
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-gray-900">Brands & Categories</h3>
+          <p class="text-gray-600">Organize your collection effortlessly with dynamic brand and category management.</p>
+        </div>
+
+        <!-- Feature 3: User Management -->
+        <div class="bg-white p-8 rounded-xl border border-gray-200 shadow-sm hover:shadow-xl hover:border-green-500/30 transition duration-300 hover:-translate-y-2 group">
+          <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-6 text-green-600 text-2xl group-hover:bg-green-500 group-hover:text-white transition">
+            👥
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-gray-900">User & Roles</h3>
+          <p class="text-gray-600">Detailed user management with secure role-based access control (RBAC) for Admins and Managers.</p>
+        </div>
+
+         <!-- Feature 4: Security -->
+         <div class="bg-white p-8 rounded-xl border border-gray-200 shadow-sm hover:shadow-xl hover:border-red-500/30 transition duration-300 hover:-translate-y-2 group">
+          <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-6 text-red-600 text-2xl group-hover:bg-red-500 group-hover:text-white transition">
+            🔒
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-gray-900">Secure Auth</h3>
+          <p class="text-gray-600">Robust authentication using JWT strategies, keeping your data safe and compliant.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+</div>
