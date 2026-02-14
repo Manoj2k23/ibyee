@@ -9,7 +9,14 @@ import dashboardRoutes from "./modules/dashboard/dashboard.routes.js";
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: [
+    "http://localhost:4200",
+    "https://ibyee.vercel.app"
+  ],
+  credentials: true
+}));
+
 app.use(express.json());
 
 // Health check endpoint
