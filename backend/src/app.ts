@@ -8,14 +8,17 @@ import brandRoutes from "./modules/brands/brands.routes.js";
 import dashboardRoutes from "./modules/dashboard/dashboard.routes.js";
 
 const app = express();
-
 app.use(cors({
   origin: [
     "http://localhost:4200",
     "https://ibyee.vercel.app"
   ],
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   credentials: true
 }));
+
+// 🔥 ADD THIS LINE
+app.options("*", cors());
 
 app.use(express.json());
 
