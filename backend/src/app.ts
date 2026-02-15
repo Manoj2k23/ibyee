@@ -11,7 +11,8 @@ const app = express();
 app.use(cors({
   origin: [
     "http://localhost:4200",
-    "https://ibyee.vercel.app"
+    "https://ibyee.vercel.app",
+    "https://ibyee-36u4qjlk2-manojkumarzmk007-gmailcoms-projects.vercel.app"
   ],
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   credentials: true
